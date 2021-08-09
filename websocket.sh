@@ -11,7 +11,7 @@ fun_bar () {
           ) > /dev/null 2>&1 &
           tput civis
 		  echo -e "\033[1;31m---------------------------------------------------\033[1;37m"
-          echo -ne "${col7}    ESPERE..\033[1;35m["
+          echo -ne "${col7}    AGUARDE..\033[1;35m["
           while true; do
           for((i=0; i<18; i++)); do
           echo -ne "\033[1;34m#"
@@ -22,7 +22,7 @@ fun_bar () {
          sleep 1s
          tput cuu1
          tput dl1
-         echo -ne "\033[1;37m    ESPERE..\033[1;35m["
+         echo -ne "\033[1;37m    AGUARDE..\033[1;35m["
          done
          echo -e "\033[1;35m]\033[1;37m -\033[1;32m INSTALADO !\033[1;37m"
          tput cnorm
@@ -32,11 +32,9 @@ fun_bar () {
 
 clear&&clear
 echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
-echo -e "\033[1;32m              PAYLOAD + SSL |by: LAG13 "
+echo -e "\033[1;32m              WEBSOCKET SSH "
 echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
-echo -e "\033[1;36m              SCRIPT AUTOCONFIGURACION "
-echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
-echo -e "\033[1;37mRequiere tener el puerto libre ,80 y el 443"
+echo -e "\033[1;37mWEBSOCKET SSH USARA A PORTA 80 e 443"
 echo
 echo -e "\033[1;33m                 INSTALANDO SSL... "
 inst_ssl () {
@@ -58,10 +56,7 @@ rm -rf /root/stunnel.key
 fun_bar 'inst_ssl'
 echo -e "\033[1;33m                 CONFIGURANDO SSL.. "
 fun_bar 'inst_ssl'
-echo -e "\033[1;37m Mensaje en el mini Banner por defecto (SSL + Pay) \033[1;36m"
-echo -e "\033[1;37m No exagerar en el mini Banner  \033[1;36m"
-echo -e "\e[0;31m Soporta HTML\e[0m"
-read -p " :" msgbanner
+read -p "STATUS DE CONEXÃO :" msgbanner
 [[ "$msgbanner" = "" ]]&& msgbanner="SSL + Pay"
 echo 
 echo -e "\033[1;33m                 CONFIGURANDO PYTHON.. "
@@ -349,11 +344,7 @@ screen -dmS pythonwe python proxy.py -p 80&
 }
 fun_bar 'inst_py'
 rm -rf proxy.py
-echo -e "                 INSTALACIÓN TERMINADA"
-echo
-echo -e "Solucionado el error de conectividad mediante el puerto 443 con SNI"
-echo
-echo -e "\e[0;31m                       by:LAG13\e[0m"
+echo -e "                 INSTALAÇÃO CONCLUIDA "
 
 echo 
 
